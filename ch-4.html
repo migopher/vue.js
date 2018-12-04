@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue demo ch-4 v-for</title>
+</head>
+<body>
+	<div class="" id="app">
+		<ul>
+			<li v-for="(todo,index) in todos">{{ index }}  {{ todo.text }}</li>
+		</ul>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+			var app =new Vue({
+				el:'#app',
+				data:{
+					    todos: [
+					      { text: '学习 JavaScript' },
+					      { text: '学习 Vue' },
+					      { text: '整个牛项目' }
+					    ]
+				}
+			})
+	</script>
+</body>
+</html>
