@@ -5,12 +5,34 @@
 	<title>Vue.js demo ch-7 component</title>
 </head>
 <body>
-	<div id="app">
-		<ul>
-
-		</ul>
-	</div>	
+<div id="app">
+  <ol>
+    <!--
+      现在我们为每个 todo-item 提供 todo 对象
+      todo 对象是变量，即其内容可以是动态的。
+      我们也需要为每个组件提供一个“key”，稍后再
+      作详细解释。
+    -->
+    <todo-item v-bind:msg="msg" v-bind:num="num"
+      >
+    </todo-item>
+  </ol>
+</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="./component"></script>
+	<script src="./component.js"></script>
+	<script type="text/javascript">
+  Vue.component('todo-item', {
+    props:['msg','num'],
+    template: '<li>{{ msg }} --- {{ num }}</li>'
+  })
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      msg:"Vue hellod",
+      num:250
+    }
+  });
+	</script>
 </body>
 </html>
