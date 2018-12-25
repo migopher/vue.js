@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Vue.js demo ch-9 freeze</title>
+	<title>Vue.js demo ch-10 v-once</title>
 </head>
 <body>
 	<div id="app">
-		{{ msg }}
+		<div v-html="msg">
+		<span v-html="msg"></span>
+		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
-		var data={msg:'消息'};
-		Object.freeze(data);  //阻止
-		var app =new Vue({
+		var data={msg:'<h1>内容</h1>'};
+		var vue =new Vue({
 			el:'#app',
 			data:data
 		});
-		data.msg="修改消息";
+		data.msg="改变内容";
 	</script>
 </body>
 </html>
